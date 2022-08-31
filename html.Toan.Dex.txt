@@ -1,0 +1,167 @@
+<div>
+        <div class="row">
+            <div class="col-6 text-center ">
+                <b>NGÂN HÀNG THƯƠNG MẠI TNHH MTV <br>XÂY DỰNG VIỆT NAM</b>
+                <br>
+           
+            </div>
+ 
+            <div class="col-6 text-center">
+                <b>
+                    CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM <br>
+                    Độc lập - Tự do - Hạnh phúc
+                </b>
+                <br>
+                <i>
+                    <input class="text-right" type="text"
+                        data-bind="value:F1_19 ,css: {error: $.trim(F1_19()).length ==0}">,
+                    ngày
+                    <input class="date" type="text" data-bind="value:F1_16">
+                </i>
+            </div>
+        </div>
+                                   
+     
+	
+    <div class="row">
+    
+            <div class="col-xs-12 text-center">
+                <font size="3">
+                    <b>BÁO CÁO NHU CẦU VỐN</b>
+                </font>
+            </div>
+            <div class="col-xs-12 text-center">
+                <font size="2">
+                    <b>Đơn vị</b>
+                </font>
+                <input style="width: 200px"  
+                    data-bind="value:DonViXinVon">
+            </div>
+
+	
+        </div>
+        <div style="margin-left:400px" class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="input-daterange input-group col-xs-6">
+                    <font size="2">
+                    <b>Thời gian:</b>
+                </font>
+                 <font size="2">
+                    <b>Từ Ngày</b>
+                </font>
+                <input style="width: 100px" class="date" type="text"
+                    data-bind="value:DateStart,  css: {error: $.trim(DateStart()).length ==0}">
+                 <font size="2">
+                    <b>Đến Ngày</b>
+                </font>
+                <input style="width: 100px"  class="date" type="text"
+                    data-bind="value:DateEnd,  css: {error: $.trim(DateEnd()).length ==0}">
+            </div>
+                    <div class="col-xs-3"></div>
+                </div>
+ 
+                 <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mục đích thanh khoản</th>
+                                        <th>Số Tiền</th>
+                                        <th>Loại Tiền</th>
+                                        <th>Hình Thức</th>
+                                        <th>Ghi Chú/Diễn giải</th>
+                                    </tr>
+                                </thead>
+                                  <tbody >
+                                    <!-- ko foreach: Array_ChiTiet_BCNCV -->
+                                     <tr>
+                            <td class="text-center" data-bind="text: $index() + 1"></td>
+                                <td data-bind="text: MucDichThanhKhoan"></td>
+                                
+                                 		<td > 
+                                        <input type="Number" class="col-xs-12 text-right"data-bind="value:SoTien, event:{change: $root.ChangeSoTien}">
+                                        </td>
+                                         <td>
+                                         
+                                    	<select class="form-control"
+                                        data-bind="options:$root.Array_LoaiTien, optionsText: 'Id', optionsValue: 'Name', selectedOptions: LoaiTien, 											event:{change: $root.ChangeSoTien}">										
+                                            </select>
+                                            
+                                        </td>
+                                         <td>
+                                         
+                                            <select class="form-control"
+                                        	data-bind="options:$root.Array_HinhThuc, optionsText: 'Name', optionsValue: 'Id', selectedOptions: HinhThuc">										
+                                            </select>
+                                            
+                                        </td>
+                                          <td>
+                                            <input type="text" class="col-xs-12 text-right"data-bind="value:GhiChu">
+                                        </td>
+                                       
+                                
+                                
+                            </tr>
+    
+    				<!-- /ko -->
+               	<tr>
+                			
+                         	<td class="text-center" rowspan="5">5</td>
+                             <td class="text-bold" rowspan="5">Tổng Cộng Nhu Cầu</td>
+                          
+                                                                                                                                                                                    
+                        </tr>
+    				<!-- ko foreach:Array_TongTien -->
+        					<tr>
+                         	
+                            
+
+                             <td class="text-center"  data-bind="text: Amount" ></td>
+                            <td class="text-center" colspan="4" data-bind="text: LoaiTienName" ></td>
+                              
+                                
+                                                                                                                                                                                    
+                        </tr>
+   					 <!-- /ko -->
+
+                            </table>
+                            
+                            <div class="row">
+                            <div class="col-6 text-center"><font size="2">
+                    <b ">Cán bộ thực hiện</b>
+                </font>
+                </div>                
+                            <div class="col-6 text-center"> <font  size="2">
+                    <b >Lãnh đạo đơn vị</b>
+                </font></div>                
+                            </div>
+                            <div class="row">
+                            <div class="col-6 text-center ">
+                
+                    <b ><input  placeholder="(Họ Và Tên)" style="width: 100px"  type="text"
+                    data-bind="value:ChuKiCanBo,  css: {error: $.trim(ChuKiCanBo()).length ==0}"></b>
+              
+                </div>                
+                     <div class="col-6 text-center">                                     
+                    <b><input placeholder="(Họ Và Tên)" style="width: 100px" type="text"
+                    data-bind="value:ChuKiLanhDao,  css: {error: $.trim(ChuKiLanhDao()).length ==0}"></b>
+                </div>
+                
+                   </div>
+                            
+                                                        
+                <p> Trong đó:</p>
+                <div style="margin-left:70px">
+                	<p> -          Đơn vị kinh doanh: Các đơn vị phát sinh nhu cầu vốn, bao gồm khối NHBB, Khối NHBL, Khối TC, Khối KDV (nếu các khối này có nhu cầu giải ngân trực tiếp tại Hội sở); CN và các PGD.</p>
+                    
+                    <p> - Số tiền: Số tiền chênh lệch ròng  giữa dòng tiền ra và dòng tiền vào mà đơn vị tự dự báo cân đối cho ngày tiếp theo. Ví dụ:đối với giải ngân khách hàng: chêch lệch giữa số tiền gốc và lãi đơn vị thu được từ khách hàng đến hạn và số tiền dự kiến giải ngân trong ngày tiếp theo/tuần tiếp theo/ tháng tiếp theo;đối với khách hàng rút tiền;chênh lệch giữa số tiền gốc đến hạn khách hàng dự kiến rút và số tiền gửi mới dự kiến trong ngày tiếp theo/tuần tiếp theo/tháng  tiếp theo;
+                    </p>
+                    <p>-Loại tiền:VNĐ hoặc USD
+                    </p>
+                   <cite>-Ghi chú/ diễn giải: Nêu rõ các khoản tiền trọng yếu từ 03 tỷ đồng trở lên yêu cầu đi sớm vào đầu ngày tiếp theo(nếu có)
+                    </cite>
+               </div>
+              </div>
+
+                
+
+                

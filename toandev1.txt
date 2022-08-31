@@ -1,0 +1,26 @@
+if(self.Array_TongTien().length == 0){
+  self.Array_LoaiTien().forEach((item, i) => {    
+  	var obj ={
+      LoaiTien: ko.observable(item.Name),  
+      TongTien: ko.observable(0)             
+    }
+   
+
+	self.Array_TongTien().push(obj);
+  })
+}
+self.TotalHOGiveVND(self.Array_TongTien()[0].Amount)
+self.TotalHOGiveUSD(self.Array_TongTien()[1].Amount)
+
+
+
+                   <tr>
+                         	<td class="text-center">5</td>
+                            <td class="text-bold">TỔNG CỘNG</td>
+                             <td class="text-bold" data-bind="text: Amount" ></td>
+                            <td class="text-bold" data-bind="text: LoaiTienName" ></td>
+                            
+                            
+                            
+                                                                                                
+                        </tr>
